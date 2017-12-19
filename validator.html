@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LDValidator</title>
+  <script src='js/ldvalidator.js'></script>
+</head>
+<body>
+<div id="form">
+  <div>
+    年龄：<input type="text" name="age" />
+  </div>
+  <div>
+    姓名：<input type="text" name="name" />
+  </div>
+  <div>
+    重复姓名：<input type="text" name="rename" />
+  </div>
+  <button onclick="submit()">提交</button>
+</div>
+
+
+
+<script>
+
+  var formValidator = new Validator('form', {
+    age: {
+      required: true,
+      msg: 'age必填',
+      scopes:[{
+        min: 20,
+        msg: 'age必须大于20'
+      }, {
+        max: 30,
+        msg: 'age必须小于30'
+      }],
+      patterns: [{
+        reg: /^[0-9]+$/,
+        msg: 'age请填入数字'
+      }],
+    },
+    name: {
+      required: true,
+      msg: 'name必填',
+      patterns: [{
+        reg: /^[a-zA-Z]+$/,
+        msg: 'name请填入英文'
+      }],
+      equal: {
+        name: 'rename',
+        msg: '姓名和重复姓名不一致'
+      }
+    }
+  });
+
+  function submit (){
+    // 必须先执行这一步
+    formValidator.validate();
+    // 这里才能获得结果
+    if(formValidator.isPass){
+      alert('通过');
+    }else{
+      console.log(formValidator.validation.msg);
+      console.log(formValidator.validation.age.msg);
+      console.log(formValidator.validation.name.msg);
+    }
+  }
+</script>
+
+</body>
+</html>
