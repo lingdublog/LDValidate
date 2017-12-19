@@ -80,7 +80,7 @@ formValidator.validation;
      | msg  | String | 验证不通过时错误提示 |
      | valid  | Boolean | 表单是否验证通过 |
 
-## 示例
+## 示例（可参考 [validator.html](https://github.com/lingdublog/LDValidate/blob/master/validator.html) ）
 ```
 <input type="text" id="age" />
 <input type="text" id="name" />
@@ -121,3 +121,6 @@ function submit (){
 	}
 }
 ```
+
+## 在线示例
+[表单验证](http://works.lingdublog.cc/popup/validator.html)
