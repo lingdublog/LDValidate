@@ -123,4 +123,4 @@ function submit (){
 ```
 
 ## 在线示例
-[表单验证](http://works.lingdublog.cc/popup/validator.html)
+[表单验证](http://works.lingdublog.cc/validator/validator.html)
